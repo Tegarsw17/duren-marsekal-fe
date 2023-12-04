@@ -3,10 +3,9 @@
 import Sidebar from '@/components/Sidebar'
 import TableTreatment from '@/components/Table/table_treatment'
 import { getDataTreatment } from '@/libs/apiLibs'
-import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-type ApiResponse = {
+interface ApiResponse {
   error: boolean;
   message: string;
   data: PlantTreatmentData

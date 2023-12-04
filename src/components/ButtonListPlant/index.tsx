@@ -18,12 +18,12 @@ interface ApiData {
 
 const ButtonList: React.FC<ButtonListProps> = ({ api }) => {
     return (
-        <div className="w-full h-full mx-auto">
-            <div className="p-4 grid lg:grid-cols-5 md:grid-cols-4 grid-cols-1 gap-2 place-items-center">
+
+        <div className="w-full h-full mx-auto py-4 px-4">
+            <div className="flex flex-row flex-wrap lg:justify-start md:justify-between justify-center gap-2">
                 {api?.data.map((plant, index) => (
                     <Link href={`/plant/${plant.id}`} key={index}>
-                        {/* <button className={`btn ${index % 2 === 0 ? 'bg-gray-800 text-white' : 'bg-green-300 text-black'}`}>{plant.name}</button> */}
-                        <button className={`lg:w-56 md:w-48 w-60 ${index % 2 === 0 ? 'bg-gray-700 text-white' : 'bg-green-300 text-black'} rounded p-2 flex justify-center`}>{plant.name}</button>
+                        <button className={`lg:w-52 md:w-48 w-60 ${index % 2 === 0 ? 'bg-gray-700 text-white' : 'bg-green-300 text-black'} rounded p-2 flex justify-center`}>{plant.name}</button>
                     </Link>
                 ))}
             </div>

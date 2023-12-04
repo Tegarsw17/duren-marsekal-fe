@@ -3,6 +3,7 @@ import DateTimePicker from 'react-datetime-picker';
 import "react-datetime-picker/dist/DateTimePicker.css"
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
+import './DatePicker.css'
 
 
 interface DatePickerProps {
@@ -19,7 +20,8 @@ const DatePicker: React.FC<DatePickerProps> = ({ label, value, onChange }) => {
                 onChange={onChange}
                 value={value}
                 format="dd-MM-y HH:mm"
-                className="bg-white"
+                locale='id-ID'
+                className="input input-bordered w-full my-2"
             />
         </div>
     );

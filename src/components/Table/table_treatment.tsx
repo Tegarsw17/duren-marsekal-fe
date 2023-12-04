@@ -3,7 +3,6 @@
 import { generateDate } from '@/libs/GenereateDate';
 import React, { useState } from 'react'
 import ModalTreatment from '../Modal/treatment';
-import { getDetailDataTreatment } from '@/libs/apiLibs';
 
 interface TableTreatmentProps {
     api: ApiData | null;
@@ -58,7 +57,7 @@ const TableTreatment: React.FC<TableTreatmentProps> = ({ api }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {api?.data.treatment.map((treat, index) => (
+                        {api?.data ? (api?.data.treatment.map((treat, index) => (
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>{api.data.name}</td>
@@ -68,7 +67,12 @@ const TableTreatment: React.FC<TableTreatmentProps> = ({ api }) => {
                                 {/* <td><button className="btn btn-sm btn-neutral">Detail</button></td> */}
                                 <td><button className='w-14 bg-gray-800 p-1 text-white rounded' onClick={() => openModal(treat.plant_id, treat.id)}>Detail</button></td>
                             </tr>
-                        ))}
+                        ))) : (
+                            <tr>
+                                <td colSpan={6} className='text-center text-lg font-bold'>Data Not Found</td>
+                            </tr>
+                        )
+                        }
                     </tbody>
                 </table>
             </div>

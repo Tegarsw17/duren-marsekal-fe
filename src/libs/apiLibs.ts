@@ -53,3 +53,13 @@ export const getDetailDataTreatment = async (id: string | null, id_treatment: st
         console.log(error)
     }
 }
+
+export const getAllTreatmentNotDone = async () => {
+    try {
+        const response = await fetch("http://127.0.0.1:8080/treatment", { next: { revalidate: 3600 } })
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+}
